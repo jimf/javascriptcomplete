@@ -523,6 +523,7 @@ function! javascriptcomplete#CompleteJS(findstart, base)
 			let values += ifras + imags + links + locas + metas + navis + objes + scres
 			let values += tabls + trows + tares + winds
 			let values += xdomnodes + xdomnliss + xdomelems
+                        let values += underscore
 		endif
 		endif
 
@@ -596,7 +597,7 @@ function! javascriptcomplete#CompleteJS(findstart, base)
 	let builtin = ['alert(', 'confirm(']
 
 	" Top-level HTML DOM objects
-	let htmldom = ['document', 'anchor', 'area', 'base', 'body', 'document', 'event', 'form', 'frame', 'frameset', 'history', 'iframe', 'image', 'input', 'link', 'location', 'meta', 'navigator', 'object', 'option', 'screen', 'select', 'table', 'tableData', 'tableHeader', 'tableRow', 'textarea', 'window']
+	let htmldom = ['_', 'document', 'anchor', 'area', 'base', 'body', 'document', 'event', 'form', 'frame', 'frameset', 'history', 'iframe', 'image', 'input', 'link', 'location', 'meta', 'navigator', 'object', 'option', 'screen', 'select', 'table', 'tableData', 'tableHeader', 'tableRow', 'textarea', 'window']
 	call map(htmldom, 'v:val."."')
 
 	" Top-level properties
