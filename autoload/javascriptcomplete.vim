@@ -514,9 +514,9 @@ function! javascriptcomplete#CompleteJS(findstart, base)
 		elseif shortcontext =~ 'parseError\.$'
 			let values = xdomerror
 		elseif shortcontext =~ 'attributes\[\d\+\]\.$'
-			let values = underscore
-		elseif shortcontext =~ '_\.$'
 			let values = xdomattrprop
+		elseif shortcontext =~ '_\.$'
+			let values = underscore
 		else
 			let values = user_props + arrays + dates + funcs + maths + numbs + objes + reges + stris
 			let values += doms + anths + areas + bases + bodys + docus + forms + frams + fsets + hists
