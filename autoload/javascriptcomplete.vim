@@ -176,6 +176,21 @@ function! javascriptcomplete#CompleteJS(findstart, base)
 		let formmeth = ['reset', 'submit', 'onReset', 'onSubmit']
 		call map(formmeth, 'v:val."("')
 		let forms = formprop + formmeth
+
+                " Underscore.js
+                let underscoreprop = ['each', 'map', 'reduce', 'reduceRight', 'detect', 'select', 'reject', 'all', 'any', 'include',
+                                    \ 'invoke', 'pluck', 'max', 'min', 'sortBy', 'sortedIndex', 'toArray', 'size',
+                                    \ 'first', 'rest', 'last', 'compact', 'flatten', 'without', 'uniq', 'intersect', 'zip', 'indexOf',
+                                    \ 'lastIndexOf', 'range',
+                                    \ 'bind', 'bindAll', 'memoize', 'delay', 'defer', 'throttle', 'debounce', 'once', 'after',
+                                    \ 'wrap', 'compose',
+                                    \ 'keys', 'values', 'functions', 'extend', 'defaults', 'clone', 'tap', 'isEqual', 'isEmpty',
+                                    \ 'isElement', 'isArray', 'isArguments', 'isFunction', 'isString', 'isNumber',
+                                    \ 'isBoolean', 'isDate', 'isRegExp', 'isNaN', 'isNull', 'isUndefined',
+                                    \ 'noConflict', 'identity', 'times', 'mixin', 'uniqueId', 'template',
+                                    \ 'chain', 'value']
+                let underscore = underscoreprop
+
 		" Frame - frame.
 		let framprop = ['contentDocument', 'frameBorder', 'id', 'longDesc', 'marginHeight', 'marginWidth',
 					\ 'name', 'noResize', 'scrolling', 'src']
@@ -499,6 +514,8 @@ function! javascriptcomplete#CompleteJS(findstart, base)
 		elseif shortcontext =~ 'parseError\.$'
 			let values = xdomerror
 		elseif shortcontext =~ 'attributes\[\d\+\]\.$'
+			let values = underscore
+		elseif shortcontext =~ '_\.$'
 			let values = xdomattrprop
 		else
 			let values = user_props + arrays + dates + funcs + maths + numbs + objes + reges + stris
